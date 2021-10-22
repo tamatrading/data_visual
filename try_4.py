@@ -1,5 +1,6 @@
-from plotly.graph_objs import Bar, Layout
-from plotly import offline
+#4-10 matlibによる正規分布
+
+import matplotlib.pyplot as plt
 
 from die import Die
 
@@ -24,10 +25,12 @@ print(frequencies)
 
 #結果を可視化する
 x_values = list(range(2,max_result+1))
-#print(x_values)
-data = [Bar(x=x_values, y=frequencies)]
+print(x_values)
 
-x_axis_config = {"title":"結果", "dtick":1}
-y_axis_config = {"title":"発生した回数"}
-my_layout = Layout(title="2個の6面サイコロを1000回転がした結果",xaxis=x_axis_config,yaxis=y_axis_config)
-offline.plot({"data":data, "layout":my_layout}, filename="d6_d6.html")
+plt.style.use("classic")
+#fig, ax = plt.subplots()
+
+plt.plot(x_values, frequencies)
+
+#描画
+plt.show()
